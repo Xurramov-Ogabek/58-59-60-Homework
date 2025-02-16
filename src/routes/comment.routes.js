@@ -6,7 +6,7 @@ import {
   deleteComment,
 } from "../controllers/comment.controller.js";
 
-export const commentRouter = express.Router(); // Named export
+export const commentRouter = express.Router(); 
 
 commentRouter.post("/", createComment);
 commentRouter.get("/", getAllComments);

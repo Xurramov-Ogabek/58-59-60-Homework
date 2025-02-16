@@ -2,7 +2,6 @@ import { Article } from "../models/index.js";
 import { BaseController } from "./base.controller.js";
 
 class ArticleController extends BaseController {
-	// Barcha maqolalarni olish (GET /api/articles)
 	async getAll(req, res, next) {
 		try {
 			const articles = await Article.find();
@@ -15,7 +14,6 @@ class ArticleController extends BaseController {
 		super(Article);
 	}
 
-	// ID bo‘yicha bitta maqola olish (GET /api/articles/:id)
 	async getById(req, res, next) {
 		try {
 			const article = await Article.findById(req.params.id);
@@ -28,7 +26,6 @@ class ArticleController extends BaseController {
 		}
 	}
 
-	// Yangi maqola yaratish (POST /api/articles)
 	async create(req, res, next) {
 		try {
 			const newArticle = new Article(req.body);
@@ -39,7 +36,6 @@ class ArticleController extends BaseController {
 		}
 	}
 
-	// Maqolani yangilash (PUT /api/articles/:id)
 	async update(req, res, next) {
 		try {
 			const updatedArticle = await Article.findByIdAndUpdate(req.params.id, req.body, {
@@ -55,7 +51,6 @@ class ArticleController extends BaseController {
 		}
 	}
 
-	// Maqolani o‘chirish (DELETE /api/articles/:id)
 	async delete(req, res, next) {
 		try {
 			const deletedArticle = await Article.findByIdAndDelete(req.params.id);

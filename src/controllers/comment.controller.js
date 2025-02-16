@@ -1,6 +1,5 @@
 import Comment from "../models/Comment.js";
 
-// Yangi komment qo'shish
 export const createComment = async (req, res) => {
   try {
     const { user, article, text } = req.body;
@@ -12,7 +11,6 @@ export const createComment = async (req, res) => {
   }
 };
 
-// Barcha kommentlarni olish
 export const getAllComments = async (req, res) => {
   try {
     const comments = await Comment.find().populate("user").populate("article");
@@ -22,7 +20,6 @@ export const getAllComments = async (req, res) => {
   }
 };
 
-// Bitta kommentni olish
 export const getCommentById = async (req, res) => {
   try {
     const comment = await Comment.findById(req.params.id).populate("user").populate("article");
@@ -33,7 +30,6 @@ export const getCommentById = async (req, res) => {
   }
 };
 
-// Kommentni o'chirish
 export const deleteComment = async (req, res) => {
   try {
     const deletedComment = await Comment.findByIdAndDelete(req.params.id);
